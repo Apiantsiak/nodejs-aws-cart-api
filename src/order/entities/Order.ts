@@ -12,16 +12,6 @@ import { CartItem } from '../../cart/entities/CartItem';
 import { Cart } from '../../cart/entities/Cart';
 
 
-// id - uuid
-// user_id - uuid
-// cart_id - uuid (Foreign key from carts.id)
-// payment - JSON
-// delivery - JSON
-// comments - text
-// status - ENUM or text
-// total - number
-
-
 @Entity("order")
 export class Order {
 
@@ -31,18 +21,9 @@ export class Order {
   @Column('uuid')
   user_id: string;
 
-  //TODO make many to one relations here
-
-  // @ManyToOne(() => Cart, cart => cart.order)
-  // items: CartItem[];
-
   @ManyToOne(() => Cart, (cart) => cart.order)
   @JoinColumn({ name: 'cart_id' })
   cart: Cart;
-
-
-  // @Column()
-  // cartId: string;
 
   @OneToMany(() => CartItem, item => item.order)
   items: CartItem[];

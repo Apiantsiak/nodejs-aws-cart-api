@@ -11,14 +11,13 @@ import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations-al
 
 const sharedLambdaProps: Partial<NodejsFunctionProps> = {
   runtime: Runtime.NODEJS_18_X,
-//   environment: {
-//     DATABASE_NAME: process.env.DATABASE_NAME!,
-//     DATABASE_HOST: process.env.DATABASE_HOST!,
-//     DATABASE_PORT: process.env.DATABASE_PORT!,
-//     DATABASE_USERNAME: process.env.DATABASE_USERNAME!,
-//     DATABASE_PASSWORD: process.env.DATABASE_PASSWORD!,
-//     PRODUCT_AWS_REGION: process.env.PRODUCT_AWS_REGION!,
-//   },
+  environment: {
+    DATABASE_NAME: process.env.DATABASE_NAME!,
+    DATABASE_HOST: process.env.DATABASE_HOST!,
+    DATABASE_PORT: process.env.DATABASE_PORT!,
+    DATABASE_USERNAME: process.env.DATABASE_USERNAME!,
+    DATABASE_PASSWORD: process.env.DATABASE_PASSWORD!,
+  },
 }
 
 

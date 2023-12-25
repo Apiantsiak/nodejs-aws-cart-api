@@ -83,30 +83,12 @@ export class CartController {
         statusCode: HttpStatus.BAD_REQUEST,
         message: 'Cart is empty',
       }, HttpStatus.BAD_REQUEST);
-      // const statusCode = HttpStatus.BAD_REQUEST;
-      // req.statusCode = statusCode
-
-      // return {
-      //   statusCode,
-      //   message: 'Cart is empty',
-      // }
     }
-
-    // const { id: cartId, items } = cart;
-    // const total = calculateCartTotal(cart);
-    // const order = this.orderService.create({
-    //   ...body, // TODO: validate and pick only necessary data
-    //   userId,
-    //   cartId,
-    //   items,
-    //   total,
-    // });
     await this.cartService.removeByUserId(userId);
 
     return {
       statusCode: HttpStatus.OK,
       message: 'OK',
-      // data: { order }
     }
   }
 }
